@@ -58,7 +58,10 @@ export default async function handler(req, res) {
       return
     }
 
-    let text = data?.result?.response || ''
+    let text = data?.result?.response ?? ''
+    if (typeof text !== 'string') {
+      text = JSON.stringify(text)
+    }
 
     // Some models wrap JSON answers in markdown fences even when asked not to — strip them.
     if (jsonMode) {
