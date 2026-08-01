@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  @apply bg-blueprint-950 text-blueprint-paper font-body antialiased;
+  background-image:
+    linear-gradient(rgba(191,217,236,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(191,217,236,0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+::selection {
+  background: #E85D3D;
+  color: #0B1E33;
+}
+
+.blueprint-panel {
+  @apply relative border border-blueprint-500/40 bg-blueprint-900/60 backdrop-blur-sm;
+}
+
+.blueprint-panel::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: -1px;
+  width: 10px; height: 10px;
+  border-top: 2px solid #E85D3D;
+  border-left: 2px solid #E85D3D;
+}
+
+.blueprint-panel::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; right: -1px;
+  width: 10px; height: 10px;
+  border-bottom: 2px solid #E85D3D;
+  border-right: 2px solid #E85D3D;
+}
+
+.label-tag {
+  @apply font-mono text-[11px] uppercase tracking-[0.18em] text-blueprint-line/70;
+}
+
+.scan-line {
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    rgba(191,217,236,0.02) 3px,
+    rgba(191,217,236,0.02) 4px
+  );
+}
+
+.markdown-body h1 { @apply font-display text-2xl text-blueprint-paper mt-6 mb-3 font-semibold; }
+.markdown-body h2 { @apply font-display text-xl text-blueprint-paper mt-6 mb-2 font-semibold border-b border-blueprint-500/30 pb-2; }
+.markdown-body h3 { @apply font-display text-base text-redline-light mt-4 mb-2 font-semibold; }
+.markdown-body p { @apply text-blueprint-line/90 leading-relaxed mb-3; }
+.markdown-body ul { @apply list-disc list-inside mb-3 text-blueprint-line/90 space-y-1; }
+.markdown-body ol { @apply list-decimal list-inside mb-3 text-blueprint-line/90 space-y-1; }
+.markdown-body code { @apply font-mono text-xs bg-blueprint-800 px-1.5 py-0.5 rounded text-redline-light; }
+.markdown-body strong { @apply text-blueprint-paper font-semibold; }
+.markdown-body table { @apply w-full text-sm border-collapse mb-4; }
+.markdown-body th { @apply text-left font-mono text-[11px] uppercase tracking-wide text-blueprint-line/70 border-b border-blueprint-500/40 pb-2; }
+.markdown-body td { @apply border-b border-blueprint-800 py-2 align-top text-blueprint-line/90; }
